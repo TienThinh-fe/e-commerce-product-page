@@ -7,10 +7,13 @@ import "./styles.scss";
 import { useState } from "react";
 import useStore from "../store";
 import Cart from "./Cart";
+import { useMediaQuery } from "react-responsive";
 
 export default function Nav() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const quantity = useStore((state) => state.quantity);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 375px)" });
 
   const handleCartIconClick = () => {
     setIsCartOpen(!isCartOpen);
@@ -18,28 +21,37 @@ export default function Nav() {
 
   return (
     <div className="nav">
+      {isMobile && (
+        <div className="nav__hamburger">
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      )}
       <div className="nav__logo">
         <img src={Logo} alt="Logo" />
       </div>
-      <div className="nav__links">
-        <ul className="nav__links--list">
-          <li className="nav__links--item">
-            <a href="#">Collections</a>
-          </li>
-          <li className="nav__links--item">
-            <a href="#">Men</a>
-          </li>
-          <li className="nav__links--item">
-            <a href="#">Women</a>
-          </li>
-          <li className="nav__links--item">
-            <a href="#">About</a>
-          </li>
-          <li className="nav__links--item">
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
+      {isMobile ? null : (
+        <div className="nav__links">
+          <ul className="nav__links--list">
+            <li className="nav__links--item">
+              <a href="#">Collections</a>
+            </li>
+            <li className="nav__links--item">
+              <a href="#">Men</a>
+            </li>
+            <li className="nav__links--item">
+              <a href="#">Women</a>
+            </li>
+            <li className="nav__links--item">
+              <a href="#">About</a>
+            </li>
+            <li className="nav__links--item">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      )}
       <div className="nav__cart">
         <img
           src={CartIcon}
