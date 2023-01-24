@@ -170,10 +170,10 @@
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: utils.$mobile-width) {
     grid-template-columns: 36px auto 60px 44px;
     max-width: initial;
-    width: 375px;
+    width: utils.$mobile-width;
     padding: 12px 0;
     position: fixed;
     top: 0;
@@ -361,7 +361,7 @@
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: utils.$mobile-width) {
     width: 100%;
     position: relative;
     top: 65px;
@@ -370,8 +370,8 @@
     grid-template-columns: 1fr;
 
     &--image--mobile {
-      width: 375px;
-      height: 375px;
+      width: utils.$mobile-width;
+      height: utils.$mobile-width;
       position: relative;
       &__preview {
         img {

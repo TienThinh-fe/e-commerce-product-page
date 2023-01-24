@@ -7,7 +7,7 @@ import ProductInfo from "./ProductInfo";
 import { useMediaQuery } from "react-responsive";
 
 export default function Product() {
-  const isMobile = useMediaQuery({ query: "(max-width: 375px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 414px)" });
 
   return (
     <div className="product">

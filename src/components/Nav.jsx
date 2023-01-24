@@ -13,7 +13,7 @@ export default function Nav() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const quantity = useStore((state) => state.quantity);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 375px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 414px)" });
 
   const handleCartIconClick = () => {
     setIsCartOpen(!isCartOpen);
