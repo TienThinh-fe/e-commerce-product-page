@@ -8,9 +8,11 @@ import { useState } from "react";
 import useStore from "../store";
 import Cart from "./Cart";
 import { useMediaQuery } from "react-responsive";
+import SideMenu from "./SideMenu";
 
 export default function Nav() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isOpenSideMenu, setIsOpenSideMenu] = useState(false);
   const quantity = useStore((state) => state.quantity);
 
   const isMobile = useMediaQuery({ query: "(max-width: 414px)" });
@@ -22,11 +24,17 @@ export default function Nav() {
   return (
     <div className="nav">
       {isMobile && (
-        <div className="nav__hamburger">
-          <a href="#" className="icon">
-            <i className="fa fa-bars"></i>
-          </a>
-        </div>
+        <>
+          <div
+            className="nav__hamburger"
+            onClick={() => setIsOpenSideMenu(true)}
+          >
+            <a href="#" className="icon">
+              <i className="fa fa-bars"></i>
+            </a>
+          </div>
+          {isOpenSideMenu && <SideMenu setIsOpenSideMenu={setIsOpenSideMenu} />}
+        </>
       )}
       <div className="nav__logo">
         <img src={Logo} alt="Logo" />
