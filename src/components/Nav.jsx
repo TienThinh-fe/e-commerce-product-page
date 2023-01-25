@@ -23,8 +23,8 @@ export default function Nav() {
     <div className="nav">
       {isMobile && (
         <div className="nav__hamburger">
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+          <a href="#" className="icon">
+            <i className="fa fa-bars"></i>
           </a>
         </div>
       )}
